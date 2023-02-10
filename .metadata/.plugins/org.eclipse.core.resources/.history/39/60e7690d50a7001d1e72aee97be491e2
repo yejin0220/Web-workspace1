@@ -1,0 +1,72 @@
+package com.kh.controller;
+
+import java.io.IOException;
+import javax.servlet.ServletException;
+import javax.servlet.annotation.WebServlet;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
+/**
+ * Servlet implementation class RequestGetServlet
+ */
+@WebServlet("/test.do")
+public class RequestGetServlet extends HttpServlet {
+	private static final long serialVersionUID = 1L;
+       
+    /**
+     * @see HttpServlet#HttpServlet()
+     */
+    public RequestGetServlet() {
+        super();
+        // TODO Auto-generated constructor stub
+    }
+
+	/**
+	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
+	 */
+	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		// TODO Auto-generated method stub
+		//System.out.println("잘 실행되나?");
+		/*
+		 * Get 방식으롱 ㅛ청했기 때문에 doGet메소드가 호출됨
+		 * 
+		 * 첫 번째 매개변수인 HttpServletRequest request에는 요청시 전달된 내용들이 담김(사용자가 입력한 값, 전송방식, 요청한 사용자의 ip등등)
+		 * 
+		 * 두 번째 매개변수인 HttpServletResponese response에는 요청 처리 후 응답할때 사용하는 객체(응답결과를 내보낼때)
+		 * 
+		 * 요청을 처리하기 위해 요청시 전달된 값(사용자가 입력한 값)들을 뽑는다
+		 * request의 parameter영역안에 존재 => key-value세트로 담겨있다.(name 속성값 = value 값)
+		 * 
+		 * 
+		 * request의 parameter영역으로부터 데이터를 뽑는 메소드
+		 * -request.getParameter("키값") : String(그에 해당하는 value값) -> 무조건 문자열로 반환됨
+		 * -request.getParameterValues("키값") : String[](그에 해당하는 value값)
+		 * => 하나의 key값으로 여러개의 value값을 받는경우(체크박스) 문자열 배열형으로 반환 가능
+		 * */
+		
+		//사용자가 입력한 값 데이터로 받아오기
+		String name=request.getParameter("name"); //텍스트 박스가 비어있는 경우 빈 문자열("")로 넘어온다
+		String gender=request.getParameter("gender"); //라디오 버튼의 경우 체크된 값이 없을 때 빈 문자열이 아닌 null로 넘어간다
+		int age =Integer.parseInt(request.getParameter("age")); //반환값이 무조건 문자열이기 때문에 반드시 형변환 해줘야 함
+		
+		String city=request.getParameter("city");
+		double height =Double.parseDouble(request.getParameter("height")); //"160.0
+		
+		//체크박스 처럼 복수개(여러개)의 정보를 받아야하는 경우에는 배열형태로 받아야 함
+		String[] foods = request.getParameterValues("food"); // ["한식", "중식", "일식" ...]의 형태로 정보 받아옴, 만약 체크한 값이 없다면 null이 넘어감
+		
+		
+		
+		response.getWriter().append("Served at: ").append(request.getContextPath());
+	}
+
+	/**
+	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
+	 */
+	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		// TODO Auto-generated method stub
+		doGet(request, response);
+	}
+
+}

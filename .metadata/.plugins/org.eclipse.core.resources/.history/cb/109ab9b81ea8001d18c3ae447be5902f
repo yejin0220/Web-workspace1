@@ -1,0 +1,78 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<%
+	String pizzaname = (String)request.getAttribute("pizzaname"); 
+	String[] tops = (String[])request.getAttribute("tops");
+	String[] sides = (String[])request.getAttribute("sides");
+%>
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style>
+	#pizza{color:red;}
+	#top{color:green;}
+	#side{color:blue;}
+	#last{color : pink;}
+</style>
+</head>
+<body>
+
+	<h3>주문 내역</h3>
+	
+	피자는 <span id="pizza"><%= pizzaname %></span>, 
+	
+	토핑은 <span id=top>
+	<%if(tops == null){%>
+		없고
+		
+	<%}else {%>
+		<%for(int i=0; i<tops.length; i++){ %>
+			<%= tops[i]%>,
+		<%} %>			
+	<%}%>
+	</span>,
+	사이드는
+		<%if(sides == null){%>
+		없고
+		
+	<%}else {%>
+		<%for(int i=0; i<sides.length; i++){ %>
+			<%= sides[i]%>,
+		<%} %>			
+	<%}%>
+	
+	주문하셨습니다. 
+
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	<br><br>
+	
+	<h3 id="last">즐거운 식사시간 되세요~</h3>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</body>
+</html>

@@ -1,0 +1,55 @@
+<%@ page impotrt="java.util.ArrayList, java.util.Date" %>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8""%>
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>page 지시어</title>
+</head>
+<body>
+
+	<h1>page 지시어</h1>
+
+	<% 
+		//ArrayList사용
+		ArrayList<String> list = new ArrayList<>();
+	%>
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+</body>
+</html>

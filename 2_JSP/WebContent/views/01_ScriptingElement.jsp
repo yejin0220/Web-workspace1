@@ -1,0 +1,79 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>스크립팅 원소</title>
+</head>
+<body>
+	
+	<!-- HTML용 주석 : 개발자 도구에 노출됨 -->
+	<%-- JSP 주석 : 개발자도구에 노출이 안됨 --%>
+	
+	<h1>스크립 원소</h1>
+	<%
+		//스크립틀릿 : 이 안에 일반적인 자바 코드를 작성할 수 있음(번수선언, 초기화, 제어문 등)
+		
+		int sum = 0;
+		for(int i=0; i<=100; i++){
+			sum += i;
+		}
+		System.out.println("덧셈결과는 ? "+sum);
+	
+	%>
+	
+	<p>
+		화면으로 출력하고자 한다면 <br>
+		스크립틀릿을 이용해서 출력을 할 수 있음 : <% out.println(sum); %> <br>
+		표현식(출력식)으로 출력 가능: <%= sum %>
+	</p>
+	
+	<%
+		//배열 사용
+		String[] name = {"김예진","홍길동","김갑생","이순신"};
+	%>
+	
+	<h5>배열의 길이 : <%= name.length %></h5>
+	<%= name %> <br>
+	<%= String.join(",",name) %>
+	
+	
+	
+	<h4>반복문을 통해 html요소를 반복적으로 화면에 출력</h4>
+	<ul>
+		<% for(int i=0; i<name.length; i++){ %>
+			<li><%= name[i] %></li>
+		<%} %>
+	</ul>	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+</body>
+</html>

@@ -1,0 +1,52 @@
+package com.kh.controller;
+
+import java.io.IOException;
+
+import javax.servlet.ServletException;
+import javax.servlet.annotation.WebServlet;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
+/**
+ * Servlet implementation class RequestPostServlet
+ */
+@WebServlet("/test2.do")
+public class RequestPostServlet extends HttpServlet {
+	private static final long serialVersionUID = 1L;
+       
+    /**
+     * @see HttpServlet#HttpServlet()
+     */
+    public RequestPostServlet() {
+        super();
+        // TODO Auto-generated constructor stub
+    }
+
+	/**
+	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
+	 */
+	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		// TODO Auto-generated method stub
+		response.getWriter().append("Served at: ").append(request.getContextPath());
+	}
+
+	/**
+	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
+	 */
+	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		System.out.println("잘 되니?");
+		
+		String name=request.getParameter("name"); //텍스트 박스가 비어있는 경우 빈 문자열("")로 넘어온다
+		String gender=request.getParameter("gender"); //라디오 버튼의 경우 체크된 값이 없을 때 빈 문자열이 아닌 null로 넘어간다
+		int age =Integer.parseInt(request.getParameter("age")); //반환값이 무조건 문자열이기 때문에 반드시 형변환 해줘야 함
+		
+		String city=request.getParameter("city");
+		double height =Double.parseDouble(request.getParameter("height")); //"160.0
+		
+		//체크박스 처럼 복수개(여러개)의 정보를 받아야하는 경우에는 배열형태로 받아야 함
+		String[] foods = request.getParameterValues("food"); // ["한식", "중식", "일식" ...]의 형태로 정보 받아옴, 만약 체크한 값이 없다면 null이 넘어감
+		
+		
+	}
+}

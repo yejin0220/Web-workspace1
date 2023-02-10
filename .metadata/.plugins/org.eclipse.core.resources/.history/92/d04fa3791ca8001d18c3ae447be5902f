@@ -1,0 +1,48 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<%
+	String pizzaname = (String)request.getAttribute("pizzaname"); 
+	String[] tops = (String[])request.getAttribute("tops");
+	String[] sides = (String[])request.getAttribute("sides");
+%>
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style>
+	#pizza{color:red;}
+	#top{color:green;}
+	#side{color:blue;}
+</style>
+</head>
+<body>
+
+	<h3>주문 내역</h3>
+	
+	피자는 <span id="pizza"><%= pizzaname %></span>,
+	토핑은 <span id="top"><%=tops%></span>,
+	사이드는 <span id="side"><%=sides %></span>
+	주문하셨습니다.
+	
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</body>
+</html>
